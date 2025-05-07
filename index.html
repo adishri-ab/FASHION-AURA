@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FashionAura</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    a:focus, button:focus, input:focus, textarea:focus {
+      outline: 2px solid #f59e0b;
+      outline-offset: 2px;
+    }
+
+    .card {
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .hero-bg {
+      background-image: url('img/falogo.jpg'); /* You can change this path */
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <!-- HEADER -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <h1 class="text-3xl font-bold text-yellow-600 animate-pulse">FashionAura</h1>
+      <nav>
+        <a href="login.html" class="text-yellow-600 hover:text-yellow-800 font-semibold transition duration-300 ease-in-out">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-6 py-10">
+    <!-- HERO / INTRO SECTION -->
+    <section class="hero-bg relative h-screen flex items-center justify-center mb-16 rounded-xl overflow-hidden shadow-xl animate-fade-in">
+      <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+      <div class="relative z-10 text-center px-6 max-w-3xl">
+        <h2 class="text-white text-5xl font-bold mb-6 leading-tight animate-fade-in">
+          Welcome to <span class="text-yellow-400">FashionAura</span>
+        </h2>
+        <p class="text-white text-lg mb-8 animate-fade-in delay-100">
+          Step into the world of elegance and personality-driven fashion. At FashionAura, we help you redefine your style with expert advice and personalized services.
+        </p>
+        <a href="explore.html">
+          <button class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-8 py-3 rounded-full text-lg transition duration-300 ease-in-out transform hover:scale-105">
+            Start Exploring
+          </button>
+        </a>
+      </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="services grid gap-8 md:grid-cols-3 mb-16">
+      <div class="card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-transform">
+        <img src="img/ps.jpg" alt="Styling" class="w-full h-80 object-cover" />
+        <div class="p-6">
+          <h2 class="text-xl font-semibold mb-2">Personal Styling</h2>
+          <p class="text-gray-600 mb-4">Custom styling tailored to your personality.</p>
+          <button class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition-transform hover:scale-105">Explore</button>
+        </div>
+      </div>
+
+      <div class="card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-transform">
+        <img src="img/wm.jpg" alt="Outfits" class="w-full h-80 object-cover" />
+        <div class="p-6">
+          <h2 class="text-xl font-semibold mb-2">Wardrobe Makeover</h2>
+          <p class="text-gray-600 mb-4">Revamp your wardrobe with expert advice.</p>
+          <button class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition-transform hover:scale-105">Explore</button>
+        </div>
+      </div>
+
+      <div class="card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-transform">
+        <img src="img/fc.jpg" alt="Consulting" class="w-full h-80 object-cover" />
+        <div class="p-6">
+          <h2 class="text-xl font-semibold mb-2">Fashion Consultation</h2>
+          <p class="text-gray-600 mb-4">Get professional advice on your style.</p>
+          <button class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition-transform hover:scale-105">Explore</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXTERNAL LINKS SECTION -->
+    <section class="visit-links mt-16 animate-fade-in">
+      <h3 class="text-center text-lg font-semibold text-yellow-600 mb-6">YOU CAN VISIT TO STYLE YOURSELF</h3>
+      <div class="overflow-x-auto">
+        <table class="w-full text-center border-collapse border border-gray-300">
+          <thead>
+            <tr class="bg-yellow-100">
+              <th class="border border-gray-300 p-3"><a target="_blank" href="https://www.amazon.in" class="text-yellow-700 hover:underline">Open Amazon</a></th>
+              <th class="border border-gray-300 p-3"><a target="_blank" href="https://www.myntra.com/" class="text-yellow-700 hover:underline">Open Myntra</a></th>
+              <th class="border border-gray-300 p-3"><a target="_blank" href="https://www.nykaafashion.com/" class="text-yellow-700 hover:underline">Open Nykaa</a></th>
+              <th class="border border-gray-300 p-3"><a target="_blank" href="https://www.purplle.com/" class="text-yellow-700 hover:underline">Open Purple</a></th>
+              <th class="border border-gray-300 p-3"><a target="_blank" href="https://www.ajio.com/" class="text-yellow-700 hover:underline">Open Ajio</a></th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </section>
+
+    <!-- CONTACT FORM -->
+    <section class="contact mt-16 max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg animate-fade-in">
+      <h2 class="text-2xl font-semibold mb-6 text-yellow-600 text-center">Get in Touch</h2>
+      <form id="contactForm" action="#" method="POST" class="space-y-4" novalidate>
+        <input type="text" name="name" placeholder="Your Name" required class="w-full border border-gray-300 rounded px-4 py-2 focus:ring-2 focus:ring-yellow-400" />
+        <input type="email" name="email" placeholder="Your Email" required class="w-full border border-gray-300 rounded px-4 py-2 focus:ring-2 focus:ring-yellow-400" />
+        <input type="text" name="contact" placeholder="Contact No." required class="w-full border border-gray-300 rounded px-4 py-2 focus:ring-2 focus:ring-yellow-400" />
+        <textarea name="message" placeholder="Your Message" required class="w-full border border-gray-300 rounded px-4 py-2 focus:ring-2 focus:ring-yellow-400 resize-y"></textarea>
+        <button type="submit" class="w-full bg-yellow-500 text-white py-2 rounded hover:bg-yellow-600 transition-transform hover:scale-105">Send Message</button>
+      </form>
+      <p id="formMessage" class="mt-4 text-center text-green-600 font-semibold hidden"></p>
+    </section>
+  </main>
+</body>
+</html>
