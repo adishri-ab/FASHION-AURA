@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Fashion Recommender</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff1f6;
+      padding: 30px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #e91e63;
+    }
+
+    .main-look img {
+      width: 280px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .more-looks {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 30px;
+      gap: 30px;
+    }
+
+    .look-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .look-card {
+      width: 220px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.2s ease;
+      cursor: pointer;
+    }
+
+    .look-card:hover {
+      transform: scale(1.03);
+    }
+
+    .look-card img {
+      width: 100%;
+      height: 270px;
+      object-fit: cover;
+    }
+
+    .look-card p {
+      font-weight: bold;
+      padding: 10px;
+      margin: 0;
+    }
+
+    .breakdown-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .breakdown-item {
+      width: 180px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .breakdown-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .breakdown-item p {
+      font-weight: bold;
+      padding: 8px;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Wardrobe Makeover</h1>
+
+  <div class="main-look">
+    <img src="wm.jpg" alt="Main Style" onclick="showRecommendedLooks()" />
+    <p>Click to explore similar looks (AI Powered)</p>
+  </div>
+
+  <div class="more-looks" id="recommendationArea"></div>
+
+  <script>
+    function showRecommendedLooks() {
+      const recommendedLooks = [
+        {
+          image: "Releaxed Refinement.jpg",
+          label: "Relaxed Refinement",
+          breakdown: [
+            { image: "White Shirt.jpg", label: "White Shirt" },
+            { image: "Tapered Denim.jpg", label: "Tapered Denim" },
+            { image: "Minimal Belt.jpg",label:"Minimal Belt" },
+          ]
+        },
+        {
+          image: "Urban Edge.jpg",
+          label: "Urban Edge",
+          breakdown: [
+            { image: "Oversized Hoodie.jpg", label: "Oversized Hoodie" },
+            { image: "Distressed Jeans.jpg", label: "Distressed Jeans" },
+            { image: "Street Sneakers.jpg", label: "Street Sneakers" }
+          ]
+        },
+        {
+          image: "Polished Staples wardable makeover.jpg",
+          label: "Polished Staples",
+          breakdown: [
+            { image: "blazer wardable makeover.jpg", label: "Blazer" },
+            { image: "Tailored Trousers.jpg", label: "Tailored Trousers" },
+            { image: "Leather Loafers.jpg", label: "Leather Loafers" }
+          ]
+        },
+        {
+          image: "Evening Luxe wardable makeover.jpg",
+          label: "Evening Luxe",
+          breakdown: [
+            { image:"Silk Gown.jpg ", label: "Silk Gown" },
+            { image:"trappy Heels.jpg ", label: "trappy Heels" },
+            { image: "Statement Clutch.jpg", label: "Statement Clutch" }
+          ]
+        },
+        {
+          image: "Trend Refresh wardable makeover.jpeg",
+          label: "Trend Refresh",
+          breakdown: [
+            { image: "crop top.jpg", label: "Cropped Top" },
+            { image: "Patterned Skirt.jpg", label: "Patterned Skirt" },
+            { image: "Layered Jacket.jpg", label: "Layered Jacket" }
+          ]
+        },
+        {
+          image: "Timeless Fusion.jpg",
+          label: "Timeless Fusion",
+          breakdown: [
+            { image: "printed kurta 2.jpg", label: "Printed Kurta" },
+            { image:"chundri paints.jpg ", label: "Churidar Pants" },
+            { image: "Duppta.jpg", label: "Elegant Dupatta" }
+          ]
+        }
+      ];
+
+      const container = document.getElementById("recommendationArea");
+      container.innerHTML = "";
+
+      recommendedLooks.forEach(look => {
+        const wrapper = document.createElement("div");
+        wrapper.className = "look-wrapper";
+
+        const card = document.createElement("div");
+        card.className = "look-card";
+        card.innerHTML = `
+          <img src="${look.image}" alt="${look.label}" />
+          <p>${look.label}</p>
+        `;
+
+        const breakdownContainer = document.createElement("div");
+        breakdownContainer.className = "breakdown-container";
+        breakdownContainer.style.display = "none";
+
+        look.breakdown.forEach(item => {
+          const itemCard = document.createElement("div");
+          itemCard.className = "breakdown-item";
+          itemCard.innerHTML = `
+            <img src="${item.image}" alt="${item.label}" />
+            <p>${item.label}</p>
+          `;
+          breakdownContainer.appendChild(itemCard);
+        });
+
+        card.onclick = () => {
+          breakdownContainer.style.display =
+            breakdownContainer.style.display === "none" ? "flex" : "none";
+        };
+
+        wrapper.appendChild(card);
+        wrapper.appendChild(breakdownContainer);
+        container.appendChild(wrapper);
+      });
+    }
+  </script>
+
+</body>
+</html>
