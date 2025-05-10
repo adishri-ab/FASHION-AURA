@@ -7,21 +7,30 @@
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #fff1f6;
-      padding: 30px;
+      background: url('falogo.jpg') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
       text-align: center;
     }
 
+    .overlay {
+      background: rgba(223, 214, 219, 0.92);
+      min-height: 100vh;
+      padding: 30px 15px;
+    }
+
     h1 {
-      color: #e91e63;
+      color: #e0d5da;
+      margin-bottom: 20px;
     }
 
     .main-look img {
       width: 280px;
       border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
       cursor: pointer;
-      margin-top: 20px;
+      margin: 20px auto;
     }
 
     .more-looks {
@@ -37,11 +46,13 @@
       flex-direction: column;
       align-items: center;
       gap: 10px;
+      width: 100%;
+      max-width: 300px;
     }
 
     .look-card {
-      width: 220px;
-      background: #fff;
+      width: 100%;
+      background: #bb7da1;
       border-radius: 10px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       overflow: hidden;
@@ -70,19 +81,19 @@
       justify-content: center;
       flex-wrap: wrap;
       gap: 15px;
-      margin-top: 15px;
+      margin-top: 10px;
     }
 
     .breakdown-item {
-      width: 180px;
-      background: #fff;
+      width: 160px;
+      background: #d2df58;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
     .breakdown-item img {
       width: 100%;
-      height: 200px;
+      height: 160px;
       object-fit: cover;
       border-radius: 10px 10px 0 0;
     }
@@ -91,6 +102,18 @@
       font-weight: bold;
       padding: 8px;
       margin: 0;
+    }
+
+    @media (min-width: 768px) {
+      .more-looks {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .look-wrapper {
+        margin: 10px;
+      }
     }
   </style>
 </head>
