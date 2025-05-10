@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login - FashionAura</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+<body class="relative bg-cover bg-center bg-no-repeat flex items-center justify-center min-h-screen" style="background-image: url('img/falogo.jpg');">
+
+  <!-- Dark overlay -->
+  <div class="bg-black bg-opacity-40 w-full h-full absolute top-0 left-0 z-0"></div>
+
+  <!-- Login Box -->
+  <main class="relative z-10 bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+    <h1 class="text-3xl font-bold text-yellow-600 mb-6 text-center">Login to FashionAura</h1>
+
+    <form id="loginForm" class="space-y-6">
+      <div>
+        <label for="email" class="block mb-1 font-semibold text-gray-700">Email</label>
+        <input type="email" id="email" name="email" required placeholder="Enter your email"
+          class="w-full border border-gray-300 rounded px-4 py-2 focus:ring-2 focus:ring-yellow-400" />
+      </div>
+      <div>
+        <label for="password" class="block mb-1 font-semibold text-gray-700">Password</label>
+        <input type="password" id="password" name="password" required placeholder="Enter your password"
+          class="w-full border border-gray-300 rounded px-4 py-2 focus:ring-2 focus:ring-yellow-400" />
+      </div>
+      <button type="submit"
+        class="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 rounded transition-transform hover:scale-105">
+        Login Now
+      </button>
+    </form>
+
+    <!-- Success Message -->
+    <div id="successMessage" class="mt-6 hidden text-center">
+      <p class="text-green-600 font-semibold mb-4">✅ Logged in successfully!</p>
+      <a href="project.html"
+        class="inline-block bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-2 rounded-full font-semibold transition-transform hover:scale-105">
+        Go to Home Page
+      </a>
+    </div>
+  </main>
+
+  <!-- Script -->
+  <script>
+    const form = document.getElementById('loginForm');
+    const successMessage = document.getElementById('successMessage');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault(); // prevent form from submitting normally
+
+      // Optional: you could validate fields here
+
+      form.classList.add('hidden');
+      successMessage.classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>
