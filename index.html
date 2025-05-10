@@ -63,7 +63,9 @@
         <div class="p-6">
           <h2 class="text-xl font-semibold mb-2">Personal Styling</h2>
           <p class="text-gray-600 mb-4">Custom styling tailored to your personality.</p>
-          <button class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">Explore</button>
+          <a href="personal styling.html">
+
+          <button class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">Explore</button> </a>
         </div>
       </div>
 
@@ -73,7 +75,9 @@
         <div class="p-6">
           <h2 class="text-xl font-semibold mb-2">Wardrobe Makeover</h2>
           <p class="text-gray-600 mb-4">Revamp your wardrobe with expert advice.</p>
-          <button class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">Explore</button>
+          <a href="Wardable.html">
+
+          <button class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">Explore</button></a>
         </div>
       </div>
 
@@ -83,7 +87,9 @@
         <div class="p-6">
           <h2 class="text-xl font-semibold mb-2">Fashion Consultation</h2>
           <p class="text-gray-600 mb-4">Get professional advice on your style.</p>
-          <button class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">Explore</button>
+          <a href="Consultation Fashion.html">
+
+          <button class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">Explore</button></a>
         </div>
       </div>
     </section>
@@ -206,32 +212,96 @@
     }
 
     function generateBotResponse(input) {
-      input = input.toLowerCase();
+  input = input.toLowerCase();
 
-      if (input.includes('weather') || input.includes('today')) {
-        return "It's sunny today ☀️ — how about a light cotton shirt and denim shorts with sunglasses?";
-      }
-      if (input.includes('cold') || input.includes('winter')) {
-        return "It's chilly! 🧥 You can wear a warm trench coat, woolen scarf, and boots.";
-      }
-      if (input.includes('rain')) {
-        return "Rainy days call for waterproof jackets, umbrellas, and non-slippery shoes ☔.";
-      }
-      if (input.includes('casual')) {
-        return "Casual vibe? Try a pair of jeans, graphic tee, and sneakers. 👖👟";
-      }
-      if (input.includes('party')) {
-        return "Party ready 🎉? Go for a sleek black dress or blazer with shiny accessories.";
-      }
-      if (input.includes('ethnic')) {
-        return "Ethnic is elegant! Try a kurta with palazzos or a saree with bold earrings. 🧡";
-      }
-      return "I'm here to help with outfit suggestions! Try asking: 'What to wear in winter?' or 'Suggest a party outfit'";
+  // Helper: Pick random message
+  function randomResponse(responses) {
+    return responses[Math.floor(Math.random() * responses.length)];
+  }
+
+  // Outfit suggestions database
+  const responses = {
+    weather: [
+      "It's sunny today ☀️ — how about a light cotton shirt and denim shorts with sunglasses?",
+      "Clear skies! A floral dress or a polo tee with chinos would be perfect.",
+      "Great weather out there! Try linen trousers and a breezy top."
+    ],
+    cold: [
+      "It's chilly! 🧥 You can wear a warm trench coat, woolen scarf, and boots.",
+      "Layer up with a thermal top, hoodie, and long coat. Don’t forget gloves!",
+      "Perfect winter look: turtleneck sweater, puffer jacket, and skinny jeans."
+    ],
+    rain: [
+      "Rainy days call for waterproof jackets, umbrellas, and non-slippery shoes ☔.",
+      "Try a hoodie layered under a raincoat with waterproof sneakers.",
+      "Monsoon mode: ankle-length jeans, a rain poncho, and a cute cap!"
+    ],
+    casual: [
+      "Casual vibe? Try a pair of jeans, graphic tee, and sneakers. 👖👟",
+      "Keep it chill: joggers, a crop top or hoodie, and your fav kicks.",
+      "Comfy & cool: oversize shirt, ripped jeans, and a crossbody bag."
+    ],
+    party: [
+      "Party ready 🎉? Go for a sleek black dress or blazer with shiny accessories.",
+      "Light up the room with a sequin top, mini skirt, and heels.",
+      "Bold & trendy: leather pants, mesh top, and statement jewelry."
+    ],
+    ethnic: [
+      "Ethnic is elegant! Try a kurta with palazzos or a saree with bold earrings. 🧡",
+      "How about an anarkali with jhumkas and embroidered juttis?",
+      "Go traditional: lehenga skirt with a crop top and dupatta!"
+    ],
+    formal: [
+      "For a formal day, go with a crisp shirt, tailored pants, and loafers.",
+      "Blazer + pencil skirt + heels = power outfit 💼.",
+      "White shirt, trousers, and a statement watch always works."
+    ],
+    date: [
+      "Date night? Try a wrap dress and block heels for charm 💘.",
+      "Soft & romantic: pastel blouse and a pleated skirt.",
+      "Edgy pick: leather jacket over a satin slip dress."
+    ],
+    gym: [
+      "Time to move! Go with leggings, a sports bra, and a zipped hoodie.",
+      "Workout-ready: dry-fit tee, track pants, and running shoes.",
+      "Activewear idea: bike shorts and a crop top with a high ponytail."
+    ],
+    mood: [
+      "Feeling confident? Rock a power suit or a bold jumpsuit 💪.",
+      "Lazy day? Oversized hoodie, leggings, and slides are your best friends 😴.",
+      "Cute mood? Go for a pastel dress with puff sleeves and kitten heels 🧁.",
+      "Feeling bold? Try a statement color like red or neon with chunky accessories 🔥.",
+      "Minimalist vibe? Neutral tones, clean cuts, and sleek accessories 🖤.",
+      "Playful? Denim skirt, colorful top, and funky earrings 💃.",
+      "Feeling classy? Silk blouse, midi skirt, and pearl jewelry 👑."
+    ]
+  };
+
+  // Keyword groups mapped to categories
+  const keywords = {
+    weather: ['weather', 'today', 'sunny', 'hot', 'summer'],
+    cold: ['cold', 'chilly', 'winter', 'snow', 'freezing'],
+    rain: ['rain', 'rainy', 'monsoon', 'wet'],
+    casual: ['casual', 'relaxed', 'everyday', 'normal', 'regular'],
+    party: ['party', 'clubbing', 'night out', 'disco'],
+    ethnic: ['ethnic', 'traditional', 'indian', 'desi', 'festive'],
+    formal: ['formal', 'office', 'meeting', 'professional'],
+    date: ['date', 'romantic', 'crush', 'boyfriend', 'girlfriend'],
+    gym: ['gym', 'workout', 'exercise', 'fitness', 'training'],
+    mood: ['mood', 'confident', 'cute', 'bold', 'lazy', 'playful', 'classy', 'chic', 'feeling', 'vibe']
+  };
+
+  // Loop through keywords
+  for (let category in keywords) {
+    if (keywords[category].some(k => input.includes(k))) {
+      return randomResponse(responses[category]);
     }
+  }
 
-    window.onload = () => {
-      addChatBubble("FashionBot", "Hi! I'm your style assistant 🤖. Ask me for outfit tips!", 'left');
-    };
+  // Fallback
+  return "I'm here to help with outfit ideas! Try asking: 'What should I wear if I feel confident?' or 'Suggest a rainy day outfit'.";
+}
+
   </script>
 </body>
 </html>
