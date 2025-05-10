@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Styling Options - FashionAura</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- HEADER -->
+
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center py-4 px-6">
+      <h1 class="text-3xl font-bold text-yellow-600">FashionAura</h1>
+      <a href="explore.html" class="text-yellow-600 hover:text-yellow-800 font-semibold transition duration-300">Back</a>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h2 class="text-4xl font-bold text-center text-yellow-600 mb-10">Styling Options</h2>
+
+```
+<!-- Tabs -->
+<div class="flex flex-wrap gap-3 justify-center mb-10">
+  <button onclick="showStyle('casual')" class="style-tab bg-yellow-300 text-yellow-800 font-semibold px-4 py-2 rounded-md">Casual</button>
+  <button onclick="showStyle('formal')" class="style-tab bg-yellow-100 text-yellow-700 px-4 py-2 rounded-md hover:bg-yellow-200">Formal</button>
+  <button onclick="showStyle('ethnic')" class="style-tab bg-yellow-100 text-yellow-700 px-4 py-2 rounded-md hover:bg-yellow-200">Ethnic</button>
+  <button onclick="showStyle('fusion')" class="style-tab bg-yellow-100 text-yellow-700 px-4 py-2 rounded-md hover:bg-yellow-200">Fusion</button>
+</div>
+
+<!-- Image Sections -->
+<div id="casual" class="style-gallery grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  <img src="img/casual1.jpg" class="rounded-xl h-64 object-cover" alt="Casual Style">
+  <img src="img/casual2.jpeg" class="rounded-xl h-64 object-cover" alt="Casual Style">
+  <img src="img/casual3.jpeg" class="rounded-xl h-64 object-cover" alt="Casual Style">
+</div>
+
+<div id="formal" class="style-gallery hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  <img src="img/formal1.jpg" class="rounded-xl h-64 object-cover" alt="Formal Style">
+  <img src="img/formal2.jpg" class="rounded-xl h-64 object-cover" alt="Formal Style">
+  <img src="img/formal3.jpg" class="rounded-xl h-64 object-cover" alt="Formal Style">
+</div>
+
+<div id="ethnic" class="style-gallery hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  <img src="img/ethnic.jpg" class="rounded-xl h-64 object-cover" alt="Ethnic Style">
+  <img src="img/ethnic2.jpeg" class="rounded-xl h-64 object-cover" alt="Ethnic Style">
+  <img src="img/ethnic3.jpg" class="rounded-xl h-64 object-cover" alt="Ethnic Style">
+</div>
+
+<div id="fusion" class="style-gallery hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  <img src="img/fusion1.jpg" class="rounded-xl h-64 object-cover" alt="Fusion Style">
+  <img src="img/fusion2.jpg" class="rounded-xl h-64 object-cover" alt="Fusion Style">
+  <img src="img/fusion3.jpg" class="rounded-xl h-64 object-cover" alt="Fusion Style">
+</div>
+```
+
+  </main>
+
+  <script>
+    function showStyle(id) {
+      document.querySelectorAll('.style-gallery').forEach(section => {
+        section.classList.add('hidden');
+      });
+      document.getElementById(id).classList.remove('hidden');
+
+      // Button styles
+      document.querySelectorAll('.style-tab').forEach(btn => {
+        btn.classList.remove('bg-yellow-300', 'text-yellow-800', 'font-semibold');
+        btn.classList.add('bg-yellow-100', 'text-yellow-700');
+      });
+      event.target.classList.add('bg-yellow-300', 'text-yellow-800', 'font-semibold');
+      event.target.classList.remove('bg-yellow-100', 'text-yellow-700');
+    }
+  </script>
+
+</body>
+</html>
+
