@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accessories Collection - FashionAura</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- HEADER -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center py-4 px-6">
+      <h1 class="text-3xl font-bold text-yellow-600">FashionAura</h1>
+      <a href="explore.html" class="text-yellow-600 hover:text-yellow-800 font-semibold transition duration-300">Back</a>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h2 class="text-4xl font-bold text-center text-yellow-600 mb-10">Accessories Collection</h2>
+
+    <!-- Tabs -->
+    <div class="flex flex-wrap gap-3 justify-center mb-10">
+      <button onclick="showAccessory('bags')" class="acc-tab bg-yellow-300 text-yellow-800 font-semibold px-4 py-2 rounded-md">Bags</button>
+      <button onclick="showAccessory('jewelry')" class="acc-tab bg-yellow-100 text-yellow-700 px-4 py-2 rounded-md hover:bg-yellow-200">Jewelry</button>
+      <button onclick="showAccessory('belts')" class="acc-tab bg-yellow-100 text-yellow-700 px-4 py-2 rounded-md hover:bg-yellow-200">Belts</button>
+      <button onclick="showAccessory('watches')" class="acc-tab bg-yellow-100 text-yellow-700 px-4 py-2 rounded-md hover:bg-yellow-200">Watches</button>
+    </div>
+
+    <!-- Bags -->
+    <div id="bags" class="acc-gallery grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <img src="img/bag1.jpg" class="rounded-xl h-64 object-cover" alt="Bag 1">
+      <img src="img/bag2.jpg" class="rounded-xl h-64 object-cover" alt="Bag 2">
+      <img src="img/bag3.jpg" class="rounded-xl h-64 object-cover" alt="Bag 3">
+    </div>
+
+    <!-- Jewelry -->
+    <div id="jewelry" class="acc-gallery hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <img src="img/jewelry1.jpg" class="rounded-xl h-64 object-cover" alt="Jewelry 1">
+      <img src="img/jewelry2.jpg" class="rounded-xl h-64 object-cover" alt="Jewelry 2">
+      <img src="img/jewelry3.jpg" class="rounded-xl h-64 object-cover" alt="Jewelry 3">
+    </div>
+
+    <!-- Belts -->
+    <div id="belts" class="acc-gallery hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <img src="img/belt1.jpg" class="rounded-xl h-64 object-cover" alt="Belt 1">
+      <img src="img/belt2.jpg" class="rounded-xl h-64 object-cover" alt="Belt 2">
+      <img src="img/belt3.jpg" class="rounded-xl h-64 object-cover" alt="Belt 3">
+    </div>
+
+    <!-- Watches -->
+    <div id="watches" class="acc-gallery hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <img src="img/watch1.jpg" class="rounded-xl h-64 object-cover" alt="Watch 1">
+      <img src="img/watch2.jpg" class="rounded-xl h-64 object-cover" alt="Watch 2">
+      <img src="img/watch3.jpg" class="rounded-xl h-64 object-cover" alt="Watch 3">
+    </div>
+  </main>
+
+  <!-- JS for Tab Switching -->
+  <script>
+    function showAccessory(id) {
+      document.querySelectorAll('.acc-gallery').forEach(section => {
+        section.classList.add('hidden');
+      });
+      document.getElementById(id).classList.remove('hidden');
+
+      document.querySelectorAll('.acc-tab').forEach(btn => {
+        btn.classList.remove('bg-yellow-300', 'text-yellow-800', 'font-semibold');
+        btn.classList.add('bg-yellow-100', 'text-yellow-700');
+      });
+      event.target.classList.add('bg-yellow-300', 'text-yellow-800', 'font-semibold');
+      event.target.classList.remove('bg-yellow-100', 'text-yellow-700');
+    }
+  </script>
+
+</body>
+</html>
