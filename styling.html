@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
@@ -11,12 +10,26 @@
     body {
       font-family: 'Poppins', sans-serif;
     }
+
+    .fade-in {
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .style-tab.active {
+      background-color: #facc15; /* yellow-300 */
+      color: #92400e;            /* yellow-800 */
+      font-weight: 600;
+    }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
   <!-- HEADER -->
-
   <header class="bg-white shadow-md sticky top-0 z-50">
     <div class="max-w-7xl mx-auto flex justify-between items-center py-4 px-6">
       <h1 class="text-3xl font-bold text-yellow-600">FashionAura</h1>
@@ -25,64 +38,62 @@
   </header>
 
   <!-- MAIN CONTENT -->
-
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <h2 class="text-4xl font-bold text-center text-yellow-600 mb-10">Styling Options</h2>
 
-```
-<!-- Tabs -->
-<div class="flex flex-wrap gap-3 justify-center mb-10">
-  <button onclick="showStyle('casual')" class="style-tab bg-yellow-300 text-yellow-800 font-semibold px-4 py-2 rounded-md">Casual</button>
-  <button onclick="showStyle('formal')" class="style-tab bg-yellow-100 text-yellow-700 px-4 py-2 rounded-md hover:bg-yellow-200">Formal</button>
-  <button onclick="showStyle('ethnic')" class="style-tab bg-yellow-100 text-yellow-700 px-4 py-2 rounded-md hover:bg-yellow-200">Ethnic</button>
-  <button onclick="showStyle('fusion')" class="style-tab bg-yellow-100 text-yellow-700 px-4 py-2 rounded-md hover:bg-yellow-200">Fusion</button>
-</div>
+    <!-- Tabs -->
+    <div class="flex flex-wrap gap-3 justify-center mb-10">
+      <button onclick="showStyle('casual', this)" class="style-tab active px-4 py-2 rounded-md transition-all duration-300">Casual</button>
+      <button onclick="showStyle('formal', this)" class="style-tab px-4 py-2 rounded-md transition-all duration-300">Formal</button>
+      <button onclick="showStyle('ethnic', this)" class="style-tab px-4 py-2 rounded-md transition-all duration-300">Ethnic</button>
+      <button onclick="showStyle('fusion', this)" class="style-tab px-4 py-2 rounded-md transition-all duration-300">Fusion</button>
+    </div>
 
-<!-- Image Sections -->
-<div id="casual" class="style-gallery grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-  <img src="casual1.jpg" class="rounded-xl h-64 object-cover" alt="Casual Style">
-  <img src="casual2.jpeg" class="rounded-xl h-64 object-cover" alt="Casual Style">
-  <img src="casual3.jpeg" class="rounded-xl h-64 object-cover" alt="Casual Style">
-</div>
+    <!-- Image Sections -->
+    <div id="casual" class="style-gallery grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 fade-in">
+      <img src="casual1.jpg" class="rounded-xl h-64 object-cover hover:scale-105 transition duration-500" alt="Casual Style">
+      <img src="casual2.jpeg" class="rounded-xl h-64 object-cover hover:scale-105 transition duration-500" alt="Casual Style">
+      <img src="casual3.jpeg" class="rounded-xl h-64 object-cover hover:scale-105 transition duration-500" alt="Casual Style">
+    </div>
 
-<div id="formal" class="style-gallery hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-  <img src="formal1.jpg" class="rounded-xl h-64 object-cover" alt="Formal Style">
-  <img src="formal2.jpg" class="rounded-xl h-64 object-cover" alt="Formal Style">
-  <img src="formal3.jpg" class="rounded-xl h-64 object-cover" alt="Formal Style">
-</div>
+    <div id="formal" class="style-gallery hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <img src="formal1.jpg" class="rounded-xl h-64 object-cover hover:scale-105 transition duration-500" alt="Formal Style">
+      <img src="formal2.jpg" class="rounded-xl h-64 object-cover hover:scale-105 transition duration-500" alt="Formal Style">
+      <img src="formal3.jpg" class="rounded-xl h-64 object-cover hover:scale-105 transition duration-500" alt="Formal Style">
+    </div>
 
-<div id="ethnic" class="style-gallery hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-  <img src="ethnic.jpg" class="rounded-xl h-64 object-cover" alt="Ethnic Style">
-  <img src="ethnic2.jpeg" class="rounded-xl h-64 object-cover" alt="Ethnic Style">
-  <img src="ethnic3.jpg" class="rounded-xl h-64 object-cover" alt="Ethnic Style">
-</div>
+    <div id="ethnic" class="style-gallery hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <img src="ethnic.jpg" class="rounded-xl h-64 object-cover hover:scale-105 transition duration-500" alt="Ethnic Style">
+      <img src="ethnic2.jpeg" class="rounded-xl h-64 object-cover hover:scale-105 transition duration-500" alt="Ethnic Style">
+      <img src="ethnic3.jpg" class="rounded-xl h-64 object-cover hover:scale-105 transition duration-500" alt="Ethnic Style">
+    </div>
 
-<div id="fusion" class="style-gallery hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-  <img src="fusion1.jpg" class="rounded-xl h-64 object-cover" alt="Fusion Style">
-  <img src="fusion2.jpg" class="rounded-xl h-64 object-cover" alt="Fusion Style">
-  <img src="fusion3.jpg" class="rounded-xl h-64 object-cover" alt="Fusion Style">
-</div>
-```
-
+    <div id="fusion" class="style-gallery hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <img src="fusion1.jpg" class="rounded-xl h-64 object-cover hover:scale-105 transition duration-500" alt="Fusion Style">
+      <img src="fusion2.jpg" class="rounded-xl h-64 object-cover hover:scale-105 transition duration-500" alt="Fusion Style">
+      <img src="fusion3.jpg" class="rounded-xl h-64 object-cover hover:scale-105 transition duration-500" alt="Fusion Style">
+    </div>
   </main>
 
+  <!-- JavaScript -->
   <script>
-    function showStyle(id) {
+    function showStyle(id, button) {
+      // Hide all style galleries
       document.querySelectorAll('.style-gallery').forEach(section => {
         section.classList.add('hidden');
+        section.classList.remove('fade-in');
       });
-      document.getElementById(id).classList.remove('hidden');
 
-      // Button styles
-      document.querySelectorAll('.style-tab').forEach(btn => {
-        btn.classList.remove('bg-yellow-300', 'text-yellow-800', 'font-semibold');
-        btn.classList.add('bg-yellow-100', 'text-yellow-700');
-      });
-      event.target.classList.add('bg-yellow-300', 'text-yellow-800', 'font-semibold');
-      event.target.classList.remove('bg-yellow-100', 'text-yellow-700');
+      // Show the selected style gallery with animation
+      const target = document.getElementById(id);
+      target.classList.remove('hidden');
+      target.classList.add('fade-in');
+
+      // Update tab styling
+      document.querySelectorAll('.style-tab').forEach(tab => tab.classList.remove('active'));
+      button.classList.add('active');
     }
   </script>
 
 </body>
 </html>
-
