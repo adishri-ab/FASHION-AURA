@@ -42,7 +42,9 @@ Welcome to **FashionAura**, an AI-powered fashion stylist web app that offers pe
 
 ## 👩‍💻 Developer
 
-Made with ❤️ by **Aadishri Abrol**  **Muskan** **Vanshika Gupta**
+Made with ❤️ by **Aadishri Abrol - 2823440** 
+ **Muskan- 2823444**,
+**Vanshika Gupta- 2823443**
 👩‍🎓 B.Tech CSE (AIML), Panipat Institute of Engineering & Technology
 
 
